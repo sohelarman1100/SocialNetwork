@@ -1,0 +1,73 @@
+﻿@model EditMemberModel
+@{
+    ViewData["Title"] = "Edit Member";
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Edit Member</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Edit Member</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit Member</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal" method="post" asp-controller="Member"
+                          asp-action="EditMember" asp-antiforgery="true">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <input type="hidden" asp-for="Id" />
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label asp-for="Name" class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" asp-for="Name"
+                                           id="name" placeholder="Member Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="DateOfBirth" class="col-sm-2 col-form-label">Date Of Birth</label>
+                                <div class="col-sm-10">
+                                    <input type="datetime" asp-for="DateOfBirth" class="form-control"
+                                           id="DateOfBirth" placeholder="Date Of Birth">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="Address" class="col-sm-2 col-form-label">Address</label>
+                                <div class="col-sm-10">
+                                    <input type="text" asp-for="Address" class="form-control"
+                                           id="Address" placeholder="Address">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-info">Edit</button>
+                            <a asp-action="AllMembersWithEditAndDeleteButton" asp-controller="Member"
+                               class="btn btn-default float-right">Cancel</a>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
